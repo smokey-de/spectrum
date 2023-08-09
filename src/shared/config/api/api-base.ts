@@ -1,9 +1,10 @@
 import axios, { AxiosError } from 'axios';
+import {API_BASE} from "../../lib/constants";
 
 
 
 const apiBase = axios.create({
-  baseURL: 'https://dev.admin.spectrumcollection.uz',
+  baseURL: API_BASE,
 });
 
 apiBase.interceptors.request.use((config) => {

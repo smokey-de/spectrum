@@ -1,0 +1,44 @@
+.section {
+  margin: 50px auto 0;
+  max-width: 1076px;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .newsWrapper {
+    margin: 50px auto 0;
+    max-width: 856px;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .section {
+    margin: 40px auto 0;
+    max-width: 100%;
+
+    .newsWrapper {
+      margin: 40px auto 0;
+      max-width: 100%;
+
+      .box {
+        &:last-child {
+          margin-top: 40px;
+        }
+
+        .text {
+          margin-top: 12px !important;
+        }
+      }
+
+      .text {
+        font-size: 14px;
+      }
+    }
+  }
+}

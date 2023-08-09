@@ -1,6 +1,5 @@
 import style from "./navbar.module.scss"
 import {useDisclosure, useMediaQuery} from "@mantine/hooks";
-import {useParams} from "react-router";
 import {useState} from "react";
 import {routePaths} from "./libs"
 import {ActionIcon, Anchor, Burger, Button, Collapse, Drawer, Flex, Group, Menu, Select, Text} from "@mantine/core";
@@ -8,23 +7,25 @@ import cl from 'classnames'
 import Link from 'next/link'
 import {usePathname} from "next/navigation";
 import {useRouter} from "next/router";
-import {Trans, useTranslation} from "next-i18next";
+import { Trans, useTranslation} from "next-i18next";
 import Logo from "../../../../public/images/logo.svg"
 import IconFlagRu from "../../../../public/images/icon-flag-ru.svg"
 import IconFlagUz from "../../../../public/images/icon-flag-uz.svg"
 import IconFlagEn from "../../../../public/images/icon-flag-en.svg"
 import IconClose from "../../../../public/images/icon-x-mark.svg"
 import ArrowDown from "../../../../public/images/arrow-down.svg"
+import {useNewsStore} from "../../../shared/store/news";
+
 export default function Navbar() {
     const location = usePathname()
     const navigate = useRouter();
     const matches = useMediaQuery('(max-width: 1439px)');
     const [opened, {open, close}] = useDisclosure(false);
-    const [language, setLanguage] = ( 'ru');
+    const [language, setLanguage] = useState('ru');
     const [selectValue, setSelectValue] = useState( 'ru');
     const [accordionOne, setAccordionOne] = useState(false);
     const [accordionTwo, setAccordionTwo] = useState(false);
-    const {t} = useTranslation();
+    const {t,i18n} = useTranslation();
     const data = [
         {
             label: 'Ru',
@@ -39,15 +40,14 @@ export default function Navbar() {
             value: 'en',
         },
     ];
-    const {id} = useParams();
+    // const {id} = useParams();
     // const fetchNewInfo = useNewsStore(s => s.fetchNewInfo);
 
     const onChange = (value: string) => {
         // if (id) setTimeout(()=> fetchNewInfo(+id))
-
-        localStorage.setItem('language', value);
-        // i18n.changeLanguage(value);
-        // setSelectValue(value);
+        // localStorage.setItem('language', value);
+        i18n.changeLanguage(value)
+        setSelectValue(value);
     };
 
     const closeDrawer = () => {
@@ -58,9 +58,9 @@ export default function Navbar() {
 
     const changeLanguage = (lang: string) => {
         // if (id) setTimeout(()=> fetchNewInfo(+id))
-        // setLanguage(lang);
-        // i18n.changeLanguage(lang);
-        localStorage.setItem('language', lang);
+        setLanguage(lang);
+        i18n.changeLanguage(lang);
+        // localStorage.setItem('language', lang);
     }
 
     return (
@@ -86,7 +86,7 @@ export default function Navbar() {
                                         <Text component={'p'}>
                                             {t('aboutCompany')}
                                         </Text>
-                                        {/*<ArrowDown />*/}
+                                        <ArrowDown />
                                     </Flex>
                                 </Menu.Target>
 
@@ -130,7 +130,7 @@ export default function Navbar() {
                                                 activities
                                             </Trans>
                                         </Text>
-                                        {/*<ArrowDown />*/}
+                                        <ArrowDown />
                                     </Flex>
                                 </Menu.Target>
 
@@ -353,8 +353,6 @@ export default function Navbar() {
                 }} className={style.navBtn}>
                     {t('contacts')}
                 </Button>
-
-
             </Drawer>
             </>)}
         </>

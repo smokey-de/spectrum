@@ -1,2 +1,8 @@
 export {default as Home} from "./home"
 export {default as About} from "./about"
+export {default as OurTeam} from "./our-team"
+export {default as OurServices} from "./our-services"
+export {default as Career} from "./career"
+export {default as Contact} from "./contact"
+export {default as AllNews} from "./all-news"
+export {default as News} from "./news"

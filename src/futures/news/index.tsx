@@ -30,7 +30,7 @@ export default function News() {
   // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
-    navigate.push('/news/' + item.id);
+    navigate.push('/all-news/' + item.id);
   }, []);
   return (
       <>
@@ -65,7 +65,7 @@ export default function News() {
                             {i?.publish_date || '00.00.0000'}
                           </Text>
                         </Box>
-                        <Button onClick={() => null} className={style.btn}>
+                        <Button onClick={() => onNewsClick(i)} className={style.btn}>
                           <ArrowRounded />
                         </Button>
                       </Flex>
@@ -119,7 +119,7 @@ export default function News() {
 
                 </Carousel>
 
-                <Button onClick={() => navigate.push('/all-news')} className={style.more} rightIcon={<ArrowRight />}>
+                <Button onClick={() => navigate.push('/all-all-news')} className={style.more} rightIcon={<ArrowRight />}>
                   {t('allNews')}
                 </Button>
               </>
