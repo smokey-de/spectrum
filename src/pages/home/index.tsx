@@ -14,8 +14,10 @@ import IconDebtSettlement from "../../../public/images/icon-debt-settlement.svg"
 import IconPiggybank from "../../../public/images/icon-piggybank.svg";
 import IconCash from "../../../public/images/icon-cash.svg";
 import cl from "classnames";
+import {useTranslation} from "next-i18next";
 export default function Home() {
     const matches = useMediaQuery('(max-width: 834px)');
+    const {t} = useTranslation();
     return (
         <>
             <Head>
@@ -31,7 +33,7 @@ export default function Home() {
                 <Box className={styles.sectionTwo}>
                     <div className={styles.boxLeft}>
                         <Text component={'p'} className={styles.title}>
-                            mainSectionTwoTitle
+                            {t('app')}
                         </Text>
                         <Flex className={styles.textWrapper} columnGap={12} align={'center'}>
                             <Image

@@ -1,28 +1,32 @@
-import { AppProps } from "next/app";
+import {AppProps} from "next/app";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import {MantineProvider} from "@mantine/core";
 import '../public/index.scss'
 import Layout from "../src/futures/layout";
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
+import {appWithTranslation} from 'next-i18next';
 
-  return (
-    <>
-      <Head>
-        <title>Home</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
+function App(props: AppProps) {
+    const {Component, pageProps} = props;
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: "light",
-        }}>
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
-      </MantineProvider>
-    </>
-  );
+    return (
+        <>
+            <Head>
+                <title>Home</title>
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+            </Head>
+
+            <MantineProvider
+                withGlobalStyles
+                withNormalizeCSS
+                theme={{
+                    colorScheme: "light",
+                }}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </MantineProvider>
+        </>
+    );
 }
+
+export default appWithTranslation(App);
