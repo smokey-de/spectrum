@@ -1,0 +1,163 @@
+.footerWrapper {
+  width: 100%;
+  background: #F3F7F8;
+
+  .footer {
+    padding: 50px 72px;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .footerLeft {
+      .leftTitle {
+        max-width: 276px;
+        width: 100%;
+        margin: 12px 0 24px;
+        color: #0B1E1D;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 130%;
+      }
+
+      ul {
+        display: flex;
+        column-gap: 24px;
+
+        li {
+          a {
+            color: #0071BB;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .footerRight {
+      max-width: 217px;
+      width: 100%;
+
+      .rightTitle {
+        color: #0B1E1D;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 31px;
+      }
+
+      .numberLabel {
+        color: #0B1E1D;
+        font-size: 14px;
+        line-height: normal;
+      }
+
+      .number {
+        margin-top: 6px;
+        color: #00AA4E;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 31px;
+        text-decoration-line: underline;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .footerWrapper {
+    .footer {
+      padding: 50px;
+
+      .footerLeft {
+
+        ul {
+          column-gap: 16px;
+
+          li {
+            a {
+              color: #0071BB;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .footerRight {
+
+        .number {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .footerWrapper {
+
+    .footer {
+      padding: 36px 16px;
+      .footerLeft {
+        .leftTitle {
+          display: none;
+        }
+
+        ul {
+          margin-top: 24px;
+          flex-direction: column;
+          row-gap: 16px;
+
+          li {
+            a {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .footerRight {
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        .rightTitle {
+          font-size: 16px;
+          line-height: 16px;
+          text-align: right;
+        }
+
+        .messengers {
+          max-width: 139px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          grid-column-gap: 18px;
+          grid-row-gap: 18px;
+          place-items: self-end;
+
+          a {
+            width: 38px;
+            height: 38px;
+            svg {
+              width: 38px;
+              height: 38px;
+            }
+          }
+        }
+
+        .numberLabel {
+          font-size: 12px;
+          text-align: right;
+        }
+
+        .number {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -11,5 +11,4 @@ export enum routePaths {
   legalSupportRecoveryProcess = 'legal-support-of-the-recovery-process',
   debtSettlement = 'pre-trial-debt-settlement',
   portfolioAnalysis = 'npl-portfolio-analysis',
-  notFound = '*',
 }
