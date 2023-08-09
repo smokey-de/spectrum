@@ -9,8 +9,8 @@ export default function About() {
     )
 }
 
-export const getStaticProps = async ({locale}) => ({
-    props: {
-        ...(await serverSideTranslations(locale, ['common'])),
-    },
-})
+// export const getStaticProps = async ({ locale}) => ({
+//     props: {
+//         ...(await serverSideTranslations(locale, ["common"])),
+//     },
+// });

@@ -9,8 +9,8 @@ export default function Home() {
     );
 }
 
-export const getStaticProps = async ({locale}) => ({
-    props: {
-        ...(await serverSideTranslations(locale, ['common'])),
-    },
-})
+// export const getStaticProps = async ({ locale = 'es-ES' }) => ({
+//     props: {
+//         ...(await serverSideTranslations(locale, ["common"])),
+//     },
+// });
