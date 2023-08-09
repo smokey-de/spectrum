@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Golos Text', sans-serif !important;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 72px;
+  margin: 0 auto;
+}
+
+.title {
+  color: #0071BB;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.headerTitle {
+  color: #0071BB;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-top: 50px;
+
+  span {
+    color: #00AA4E;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .title {
+    color: #0071BB;
+    font-size: 24px;
+    line-height: 100%;
+  }
+  .headerTitle {
+    font-size: 32px;
+    line-height: 100%;
+
+  }
+}
+
+@media only screen and (max-width: 834px){
+  .container {
+    max-width: 834px;
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .headerTitle {
+    font-size: 24px;
+    margin-top: 24px;
+
+    span {
+      color: #00AA4E;
+    }
+  }
+}
