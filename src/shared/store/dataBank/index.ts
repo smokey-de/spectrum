@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { getBankDate,IBankDate as IBankDateProp } from '@/shared/api/dataBank';
+import { getBankDate,IBankDate as IBankDateProp } from './../../api/dataBank';
 
 interface IBankDateState {
   bankDate?: IBankDateProp[];

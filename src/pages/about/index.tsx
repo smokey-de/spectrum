@@ -37,9 +37,7 @@ export default function About() {
                             {t('WeOffer')}
                         </Text>
                         <Text className={style.boxText} component={'p'}>
-                            <Trans components={{br: <br/>}}>
-                                WeOfferText
-                            </Trans>
+                            <Trans components={{br: <br/>}} i18nKey={'common:WeOfferText'}/>
                         </Text>
                     </div>
                 </Flex>
