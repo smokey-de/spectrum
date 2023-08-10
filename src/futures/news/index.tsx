@@ -24,10 +24,8 @@ export default function News() {
   const [fetchNews, mainNewList, reset] = useNewsStore(s => [s.fetchNews, s.mainNewList, s.reset], shallow);
   useEffect(() => {
     fetchNews();
-
     return () => reset();
   }, []);
-  // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
     navigate.push('/all-news/' + item.id);
