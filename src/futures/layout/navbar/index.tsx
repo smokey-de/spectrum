@@ -192,8 +192,8 @@ export default function Navbar() {
                 position='right'
                 size='100%'
                 className={style.drawerMenu}
-                opened={opened}
-                onClose={close}
+                opened={opened} onClose={close}
+                transitionProps={{ transition: 'fade', duration: 150, timingFunction: 'liner' }}
                 title={false}
                 withCloseButton={false}
                 classNames={{
