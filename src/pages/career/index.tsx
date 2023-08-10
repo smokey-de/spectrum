@@ -15,13 +15,9 @@ export default function Career(){
   return (
       <>
         <Box className={'container'}>
-          <Text maw={1182} m={'0 auto'} className={'headerTitle'} component={'p'}>
-            {/*<Trans components={{span: <span/>}}>*/}
-            {/*  careerTitle*/}
-            {/*</Trans>*/}
+          <Box maw={1182} m={'0 auto'} >
             <HeadTitle route={navigate.route}/>
-
-          </Text>
+          </Box>
 
           <div className={style.sectionOne}>
             <Text className={cl(style.title,'title')} component={'p'}>

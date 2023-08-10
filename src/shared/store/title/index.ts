@@ -20,7 +20,6 @@ export const useTitleStore = create<ITitles>((set, get) => ({
 
     const titlesList = await getTitleList(route);
 
-    console.log(titlesList,'rerserse')
     set({ titleItem: titlesList });
   },
 

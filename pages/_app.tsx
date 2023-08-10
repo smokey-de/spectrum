@@ -8,13 +8,10 @@ import parse from "html-react-parser";
 import {useMetricsStore} from "../src/shared/store/metrics";
 import {shallow} from "zustand/shallow";
 import {useEffect} from "react";
-import {usePathname} from "next/navigation";
 
 function App(props: AppProps) {
-    const location = usePathname()
     const {Component, pageProps} = props;
     const [fetchMetrics, metricsList, reset] = useMetricsStore(s => [s.fetchMetrics, s.metricsList, s.reset], shallow);
-    console.log(location,'location')
     useEffect(() => {
         fetchMetrics();
         return () => reset();
