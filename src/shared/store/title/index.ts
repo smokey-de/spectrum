@@ -1,5 +1,5 @@
 import create from 'zustand';
-import {getTitleList,ITitleList} from "../../api/title";
+import {getTitleList} from "../../api/title";
 
 interface ITitleState {
   titleItem: any;

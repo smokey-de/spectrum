@@ -4,14 +4,16 @@ import { Box, Flex, Image, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { shallow } from 'zustand/shallow';
 import {useOurTeamStore} from "../../shared/store/our-team";
-import {WeTrusted} from "../../futures";
+import {HeadTitle, WeTrusted} from "../../futures";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import {useRouter} from "next/router";
 
 
 export default function OurTeam() {
+    const navigate = useRouter()
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+    const { t } = useTranslation('common');
 
   const [fetchOurTeam, ourTeamList, reset] = useOurTeamStore(s => [s.fetchOurTeam, s.ourTeamList, s.reset], shallow);
 
@@ -24,9 +26,7 @@ export default function OurTeam() {
   return (
       <>
         <Box className={'container'}>
-          <Text component={'p'} className={'headerTitle'}>
-              <Trans components={{span: <span/>}} i18nKey={'common:ourTeamTitle'}/>
-          </Text>
+        <HeadTitle route={navigate.route}/>
           <div className={style.section}>
             {ourTeamList?.map((i,index) => <>
               <Flex key={index} className={style.box}>

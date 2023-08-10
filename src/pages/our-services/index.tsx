@@ -7,20 +7,20 @@ import ImageOne from '../../../public/images/our-services/image-one.png';
 import ImageTwo from '../../../public/images/our-services/image-two.png';
 import ImageThree from '../../../public/images/our-services/image-three.png';
 import cl from 'classnames';
-import {OurMission, WeTrusted} from "../../futures";
+import {HeadTitle, OurMission, WeTrusted} from "../../futures";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import {useRouter} from "next/router";
 
 export default function OurServices()  {
-  const { t } = useTranslation();
+  const navigate = useRouter()
+  const { t } = useTranslation('common');
   return (
       <>
         <Box className={'container'}>
           <div className={style.sectionOne}>
-            <Text component={'p'} className={'headerTitle'}>
-              <Trans components={{span: <span/>}} i18nKey={'common:servicesTitle'}/>
-            </Text>
+          <HeadTitle route={navigate.route}/>
             <Text className={style.headerSubTitle} component={'p'}>
               {t('servicesSubtitle')}
             </Text>

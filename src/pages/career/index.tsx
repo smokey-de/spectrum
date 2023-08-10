@@ -30,7 +30,7 @@ export default function Career(){
               </Text>
 
               <Text className={style.text} component={'p'}>
-                <Trans components={{b: <b/>}} i18nKey={"common:careerWithUsText"}/>
+                <Trans components={{b: <b />}} i18nKey={"common:careerWithUsText"}/>
               </Text>
 
               <Anchor target={'_blank'} href={'https://tashkent.hh.uz/employer/9857172?hhtmFrom=vacancy'} className={style.link}>

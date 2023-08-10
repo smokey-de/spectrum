@@ -12,7 +12,7 @@ import useTranslation from 'next-translate/useTranslation'
 
 function App(props: AppProps) {
     const {Component, pageProps} = props;
-    const {t,lang} = useTranslation();
+    const {t, lang} = useTranslation();
     const [fetchMetrics, metricsList, reset] = useMetricsStore(s => [s.fetchMetrics, s.metricsList, s.reset], shallow);
     useEffect(() => {
         fetchMetrics();
@@ -23,18 +23,17 @@ function App(props: AppProps) {
     return (
         <>
             <Head>
-                <title>
-                    Spectrum Collection
-                </title>
+                <title>Spectrum Collection</title>
+                <meta name="theme-color" content="#0071BB"/>
+                <meta name="msapplication-navbutton-color" content="#0071BB"/>
+                <meta name="apple-mobile-web-app-status-bar-style" content="#0071BB"/>
                 {metricsList?.map((i: any) => parse(i?.code))}
             </Head>
 
             <MantineProvider
                 withGlobalStyles
                 withNormalizeCSS
-                theme={{
-                    colorScheme: "light",
-                }}>
+                theme={{colorScheme: "light"}}>
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>

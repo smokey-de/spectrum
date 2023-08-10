@@ -7,11 +7,9 @@ export default function HeadTitle({route}: { route: string }) {
     const [fetchTitle, titleItem, reset] = useTitleStore(s => [s.fetchTitle, s.titleItem, s.reset], shallow);
     useEffect(() => {
         fetchTitle(route)
+        return () => reset();
     }, [])
-    console.log(titleItem)
-    return (
-            <Title order={1} className={'headerTitle'}>
-                {titleItem?.title ? titleItem.title : "-"}
-            </Title>
-    )
+    return <Title order={1} className={'headerTitle'}
+                  dangerouslySetInnerHTML={{__html: titleItem?.title ? titleItem?.title : "-"}}/>
+
 }

@@ -11,7 +11,7 @@ import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
 
 const MonitoringLevelOverdue = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const matches = useMediaQuery('(max-width: 834px)');
   return (
     <>

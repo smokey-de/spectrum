@@ -3,6 +3,7 @@ import style from './index.module.scss';
 import { Box, Button, Flex, Image, Text } from '@mantine/core';
 import ArrowRight from '../../../public/images/arrow-right.svg';
 import ArrowRounded from '../../../public/images/arrow-rounded.svg';
+import ArrowRoundedSmall from '../../../public/images/arrow-rounded.svg';
 import cl from 'classnames';
 import { useMediaQuery } from '@mantine/hooks';
 import { Carousel } from '@mantine/carousel';
@@ -23,8 +24,10 @@ export default function News() {
   const [fetchNews, mainNewList, reset] = useNewsStore(s => [s.fetchNews, s.mainNewList, s.reset], shallow);
   useEffect(() => {
     fetchNews();
+
     return () => reset();
   }, []);
+  // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
     navigate.push('/all-news/' + item.id);
@@ -106,7 +109,7 @@ export default function News() {
                                 {i?.publish_date || '00.00.0000'}
                               </Text>
                             </Box>
-                            <Button onClick={() => null} className={style.btn}>
+                            <Button onClick={ () => onNewsClick(i)} className={style.btn}>
                               <ArrowRounded />
                             </Button>
                           </Flex>

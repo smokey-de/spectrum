@@ -15,10 +15,7 @@ export default function About() {
     return (
         <>
             <Box className={'container'}>
-                <Text className={'headerTitle'} component={'p'}>
-                    <Trans i18nKey="common:aboutTitle"
-                           components={{span: <span/>}}/>
-                </Text>
+               <HeadTitle route={navigate?.route}/>
                 <Flex className={style.sectionTwo}>
                     <div className={style.boxLeft}>
                         <Text component={'p'} className={style.boxTitle}>

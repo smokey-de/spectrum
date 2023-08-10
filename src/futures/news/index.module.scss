@@ -77,8 +77,8 @@
     }
 
     .btn {
-      width: 58px;
-      height: 58px;
+      width: 60px;
+      height: 60px;
       background: transparent;
       padding: 0;
       opacity: 0;
@@ -119,14 +119,7 @@
           }
         }
 
-        .btn {
-          width: 58px;
-          height: 58px;
-          background: transparent;
-          padding: 0;
-          opacity: 0;
-          transition: .2s ease-in-out;
-        }
+
       }
     }
   }
@@ -155,6 +148,15 @@
       .badge {
         font-size: 12px;
 
+      }
+
+      .btn {
+        width: 60px;
+        height: 60px;
+
+        span {
+          overflow: inherit;
+        }
       }
 
     }

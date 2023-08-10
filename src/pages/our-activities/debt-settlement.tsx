@@ -11,7 +11,7 @@ import Trans from "next-translate/Trans";
 
 export default function DebtSettlement() {
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
       <>
         <Box className={'container'}>
