@@ -7,15 +7,18 @@ import {OurValues, WeTrusted} from "../../futures";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import HeadTitle from "../../futures/title";
+import {useRouter} from "next/router";
 
 export default function Career(){
+  const navigate = useRouter()
   const { t } = useTranslation('common');
   return (
       <>
         <Box className={'container'}>
-          <Text maw={1182} m={'0 auto'} className={'headerTitle'} component={'p'}>
-            <Trans i18nKey={'common:careerTitle'} components={{span: <span/>}}/>
-          </Text>
+          <Box maw={1182} m={'0 auto'} >
+            <HeadTitle route={navigate.route}/>
+          </Box>
 
           <div className={style.sectionOne}>
             <Text className={cl(style.title,'title')} component={'p'}>
@@ -27,7 +30,7 @@ export default function Career(){
               </Text>
 
               <Text className={style.text} component={'p'}>
-                <Trans components={{b: <b/>}} i18nKey={"common:careerWithUsText"}/>
+                <Trans components={{b: <b />}} i18nKey={"common:careerWithUsText"}/>
               </Text>
 
               <Anchor target={'_blank'} href={'https://tashkent.hh.uz/employer/9857172?hhtmFrom=vacancy'} className={style.link}>

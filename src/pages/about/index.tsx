@@ -5,20 +5,17 @@ import style from "./index.module.scss"
 import {useMediaQuery} from "@mantine/hooks";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import HeadTitle from "../../futures/title";
 
 export default function About() {
     const navigate = useRouter();
     const matches = useMediaQuery('(max-width: 834px)');
     const {t} = useTranslation('common')
 
-
     return (
         <>
             <Box className={'container'}>
-                <Text className={'headerTitle'} component={'p'}>
-                    <Trans i18nKey="common:aboutTitle"
-                           components={{span: <span/>}}/>
-                </Text>
+               <HeadTitle route={navigate?.route}/>
                 <Flex className={style.sectionTwo}>
                     <div className={style.boxLeft}>
                         <Text component={'p'} className={style.boxTitle}>

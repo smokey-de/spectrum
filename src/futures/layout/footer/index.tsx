@@ -41,7 +41,7 @@ export default function Footer() {
                                 </Anchor>
                             </li>
                             <li>
-                                <Anchor onClick={scrollTop} component={Link} href={'/all-all-news'}>
+                                <Anchor onClick={scrollTop} component={Link} href={'/all-news'}>
                                     {t('news')}
                                 </Anchor>
                             </li>

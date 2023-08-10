@@ -109,12 +109,13 @@
         max-width: 100%;
         padding: 24px;
         span {
-          line-height: 100%;
+          line-height: 50%;
+          font-size: 28px;
         }
 
         p {
           margin-top: 8px;
-          line-height: 80%;
+          line-height: 90%;
         }
       }
     }

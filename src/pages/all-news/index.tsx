@@ -34,7 +34,7 @@ export default function AllNews() {
   }, []);
 
   const onNewsClick = useCallback((item: INewsList) => {
-    navigate.push('/news/' + item?.id);
+    navigate.push('/all-news/' + item?.id);
   }, []);
 
   const onSetPage = (page: number) => {

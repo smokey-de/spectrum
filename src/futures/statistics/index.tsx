@@ -2,26 +2,21 @@ import {useEffect} from 'react';
 import style from './index.module.scss';
 import {Flex, Text, Box, Skeleton} from '@mantine/core';
 import { useStatisticsStore } from '../../shared/store/statistics';
-// import { useBankDataStore } from '@/shared/store/dataBank';
 import { shallow } from 'zustand/shallow';
 import useTranslation from "next-translate/useTranslation";
+import {useBankDataStore} from "../../shared/store/dataBank";
 
 export default function Statistics() {
     const {t,lang} = useTranslation('common');
 
     const [fetchStatistics, statisticsList, reset] = useStatisticsStore(s => [s.fetchStatistics, s.statisticsList, s.reset], shallow);
-    // const [bankDate, fetchBankData] = useBankDataStore(s => [s.bankDate, s.fetchBankData], shallow);
+    const [bankDate, fetchBankData] = useBankDataStore(s => [s.bankDate, s.fetchBankData], shallow);
     useEffect(() => {
       fetchStatistics();
-      // fetchBankData();
+      fetchBankData();
       return () => reset();
     }, [lang]);
-    // localStorage.getItem('language')
-    // const statisticsList: any = [{
-    //     icon: 'noImage',
-    //     value: '1',
-    //     title: 'text',
-    // }]
+
     return (
         <>
             <div className={style.boxWrapper}>
@@ -52,13 +47,10 @@ export default function Statistics() {
                         )}
                     </Flex>
                 )}
-                <Text className={style.subTitle}>
-                    {/*{t('statisticsBottomText', {  '00.00.0000'})}*/}
-                    statisticsBottomText
-                </Text>
-                {/*{bankDate?.map((i:string, index:number) => <Text key={index} className={style.subTitle}>*/}
-                {/*  {t('statisticsBottomText', { date: i?.date || '00.00.0000' })}*/}
-                {/*</Text>)}*/}
+
+                {bankDate?.map((i, index) => <Text key={index} className={style.subTitle}>
+                    {t('statisticsBottomText', { date: i?.date || '00.00.0000' })}
+                </Text>)}
             </div>
 
 

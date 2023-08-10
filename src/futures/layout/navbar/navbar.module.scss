@@ -11,9 +11,8 @@
     width: 100%;
     padding: 0 72px;
     display: flex;
-    column-gap: 80px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     .logo {
       min-width: 158px;
@@ -47,6 +46,10 @@
       }
     }
 
+    .navbarRight{
+      display: flex;
+    }
+
     .languages {
       border-radius: 6px;
       border: 1px solid #E7E7E7;
@@ -64,7 +67,7 @@
       }
 
       .languagesRightSection {
-        //background-image: url("../../../shared/images/arrow-down.svg");
+        background-image: url("../../../../public/images/arrow-down.svg");
         background-repeat: no-repeat;
         background-position: 50%;
 
@@ -170,6 +173,10 @@
       }
 
       ul {
+        display: none;
+      }
+
+      .navbarRight{
         display: none;
       }
 

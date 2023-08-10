@@ -34,9 +34,9 @@ const data = [
 ];
 
 export default function Navbar() {
+    const matches = useMediaQuery('(max-width: 1439px)');
     const location = usePathname()
     const navigate = useRouter();
-    const matches = useMediaQuery('(max-width: 1439px)');
     const [opened, {open, close}] = useDisclosure(false);
     const [accordionOne, setAccordionOne] = useState(false);
     const [accordionTwo, setAccordionTwo] = useState(false);
@@ -163,7 +163,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                     {!matches && (<>
-                        <Flex columnGap={matches ? 20 : 12} align={'center'}>
+                        <Flex className={style.navbarRight} columnGap={matches ? 20 : 12} align={'center'}>
                             <Select
                                 value={lang}
                                 onChange={changeLanguage}
