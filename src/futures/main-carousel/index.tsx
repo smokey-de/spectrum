@@ -1,17 +1,15 @@
 import style from './index.module.scss';
 import { Carousel } from '@mantine/carousel';
 import { Text } from '@mantine/core';
-import ImageOne from '../../../public/images/main-image/carousel-one.png';
-import ImageTwo from '../../../public/images/main-image/carousel-two.png';
-import ImageThree from '../../../public/images/main-image/carousel-three.png';
 import ArrowLeft from '../../../public/images/carousel-arrow.svg';
 import ArrowRight from '../../../public/images/carousel-arrow-right.svg';
 import { useMediaQuery } from '@mantine/hooks';
-import { Trans, useTranslation } from 'react-i18next';
 import cl from "classnames";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 export default function MainCarousel() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const matches = useMediaQuery('(max-width: 834px)');
   return (
       <>
@@ -33,9 +31,7 @@ export default function MainCarousel() {
               <div className={cl(style.card,style.one)} >
                 <div className={style.cardText}>
                   <Text component={'p'}>
-                    <Trans components={{ span: <span/> }}>
-                      main-carousel-one
-                    </Trans>
+                    <Trans components={{ span: <span/> }} i18nKey={'common:main-carousel-one'} />
                   </Text>
                 </div>
               </div>
@@ -44,9 +40,7 @@ export default function MainCarousel() {
               <div className={cl(style.card,style.two)} >
                 <div className={style.cardText}>
                   <Text component={'p'}>
-                    <Trans components={{ span: <span/> }}>
-                      mainCarouselTwo
-                    </Trans>
+                    <Trans components={{ span: <span/> }} i18nKey={'common:mainCarouselTwo'} />
                   </Text>
                 </div>
               </div>
@@ -55,9 +49,7 @@ export default function MainCarousel() {
               <div className={cl(style.card,style.three)} >
                 <div className={style.cardText}>
                   <Text component={'p'}>
-                    <Trans components={{ span: <span/> }}>
-                      mainCarouselThree
-                    </Trans>
+                    <Trans components={{ span: <span/> }} i18nKey={'common:mainCarouselThree'} />
                   </Text>
                 </div>
               </div>

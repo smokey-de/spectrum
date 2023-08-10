@@ -8,25 +8,23 @@ import { useMediaQuery } from '@mantine/hooks';
 import { Carousel } from '@mantine/carousel';
 import CArrowLeft from '../../../public/images/carousel-arrow.svg';
 import CArrowRight from '../../../public/images/carousel-arrow-right.svg';
-import { useTranslation } from 'react-i18next';
 import {useRouter} from "next/router";
 import {INewsList} from "../../shared/api/news";
 import {useNewsStore} from "../../shared/store/news";
 import { shallow } from 'zustand/shallow';
+import useTranslation from "next-translate/useTranslation";
 
 export default function News() {
   const navigate = useRouter();
   const matches = useMediaQuery('(max-width: 1439px)');
   const smallMatches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   const [fetchNews, mainNewList, reset] = useNewsStore(s => [s.fetchNews, s.mainNewList, s.reset], shallow);
   useEffect(() => {
     fetchNews();
-
     return () => reset();
   }, []);
-  // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
     navigate.push('/news/' + item.id);

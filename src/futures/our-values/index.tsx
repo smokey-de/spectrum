@@ -9,12 +9,12 @@ import { useMediaQuery } from '@mantine/hooks';
 import { Carousel } from '@mantine/carousel';
 import CArrowRight from '../../../public/images/carousel-arrow-right.svg';
 import CArrowLeft from '../../../public/images/carousel-arrow.svg';
-import { useTranslation } from 'react-i18next';
+import useTranslation from "next-translate/useTranslation";
 
 export default function OurValues()  {
   const [carousel,setCarousel] = useState(false)
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   setTimeout(() => {
     setCarousel(true)

@@ -4,13 +4,13 @@ import { Anchor, Box, Button, Flex, Input, Modal, Text, Textarea } from '@mantin
   import { IMaskInput } from 'react-imask';
 import IconCheck from '../../../public/images/icon-check-success.svg';
 import { useDisclosure, useMediaQuery, useWindowScroll } from '@mantine/hooks';
-import { useTranslation } from 'react-i18next';
 import {sendContactForm} from "../../shared/api/contact";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Contact(){
   const [opened, { open, close }] = useDisclosure(false);
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [scroll, scrollTo] = useWindowScroll();
   const [name, setName] = useState('');
   const [text, setText] = useState('');

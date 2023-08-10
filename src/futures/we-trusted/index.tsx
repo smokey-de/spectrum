@@ -1,23 +1,19 @@
 import React, {useEffect} from 'react';
 import style from './index.module.scss';
-import { Text} from '@mantine/core';
+import {Text} from '@mantine/core';
 import {Carousel} from '@mantine/carousel';
-import ImageOne from '../../../public/images/image-buzzfeed.svg';
-import ImageTwo from '../../../public/images/image-zendesk.svg';
-import ImageThree from '../../../public/images/image-mollie.svg';
-import ImageFour from '../../../public/images/image-dropbox.svg';
 
-import  CArrowRight from '../../../public/images/carousel-arrow.svg';
+import CArrowRight from '../../../public/images/carousel-arrow.svg';
 import CArrowLeft from '../../../public/images/carousel-arrow-right.svg';
 import {useMediaQuery} from '@mantine/hooks';
-import {useTranslation} from 'react-i18next';
 
 import {shallow} from 'zustand/shallow';
 import {usePartnersStore} from "../../shared/store/partners";
+import useTranslation from "next-translate/useTranslation";
 
 export default function WeTrusted(){
     const matches = useMediaQuery('(max-width: 834px)');
-    const {t} = useTranslation();
+    const {t} = useTranslation('common');
 
     const [fetchPartners, partnersList, reset] = usePartnersStore(s => [s.fetchPartners, s.partnersList, s.reset], shallow);
 

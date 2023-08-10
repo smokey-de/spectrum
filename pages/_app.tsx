@@ -5,9 +5,15 @@ import '../public/index.scss'
 import Layout from "../src/futures/layout";
 import {appWithTranslation} from 'next-i18next';
 import useTranslation from 'next-translate/useTranslation'
+import {useEffect} from "react";
 
 function App(props: AppProps) {
     const {Component, pageProps} = props;
+    const {t,lang} = useTranslation();
+
+    useEffect(() => {
+        localStorage.setItem('languageLocal', lang)
+    },[lang])
 
     return (
         <>

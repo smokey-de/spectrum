@@ -8,17 +8,18 @@ import { useMediaQuery, useScrollIntoView, useWindowScroll } from '@mantine/hook
 import { Carousel } from '@mantine/carousel';
 import ArrowLeft from '../../../public/images/carousel-arrow.svg';
 import ArrowRight from '../../../public/images/carousel-arrow-right.svg';
-import { Trans, useTranslation } from 'react-i18next';
 
 import {useRouter} from "next/router";
 import {routePaths} from "../layout/navbar/libs";
 import {usePathname} from "next/navigation";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 export default function OtherActivities() {
   const location = usePathname()
   const navigate = useRouter()
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [scroll, scrollTo] = useWindowScroll();
   const [carousel,setCarousel] = useState(false)
 
@@ -68,9 +69,7 @@ export default function OtherActivities() {
                 <IconPiggybank />
               </div>
               <Text component={'p'} className={style.cardTitle}>
-                <Trans components={{br: <br/>}}>
-                  activitiesCardThree
-                </Trans>
+                <Trans  components={{br: <br/>}} i18nKey={'common:activitiesCardThree'}/>
               </Text>
             </Flex>
           </div>}
@@ -142,9 +141,7 @@ export default function OtherActivities() {
                   <IconPiggybank />
                 </div>
                 <Text component={'p'} className={style.cardTitle}>
-                  <Trans components={{br: <br/>}}>
-                    activitiesCardThree
-                  </Trans>
+                  <Trans  components={{br: <br/>}} i18nKey={'common:activitiesCardThree'}/>
                 </Text>
               </Flex>
             </div>

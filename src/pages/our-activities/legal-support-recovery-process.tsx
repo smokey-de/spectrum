@@ -4,9 +4,10 @@ import {Box, Text} from '@mantine/core';
 import ImageOne from '../../../public/images/our-activities/image-7.png';
 import ImageTwo from '../../../public/images/our-activities/image-8.png';
 import {useMediaQuery} from '@mantine/hooks';
-import {Trans, useTranslation} from 'react-i18next';
 import {OtherActivities} from "../../futures";
 import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 const LegalSupportRecoveryProcess = () => {
     const matches = useMediaQuery('(max-width: 834px)');
@@ -15,9 +16,7 @@ const LegalSupportRecoveryProcess = () => {
         <>
             <Box className={'container'}>
                 <Text component={'p'} className={'headerTitle'}>
-                    <Trans components={{span: <span/>, br: <br/>}}>
-                        activitiesFour
-                    </Trans>
+                    <Trans components={{span: <span/>, br: <br/>}} i18nKey={'common:activitiesFour'}/>
                 </Text>
                 <div className={style.section}>
                     <Image src={ImageOne} alt={'ImageOne'}/>

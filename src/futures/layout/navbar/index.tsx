@@ -40,7 +40,7 @@ export default function Navbar() {
     const [opened, {open, close}] = useDisclosure(false);
     const [accordionOne, setAccordionOne] = useState(false);
     const [accordionTwo, setAccordionTwo] = useState(false);
-    const {t,lang} = useTranslation();
+    const {t,lang} = useTranslation('common');
 
 
     const closeDrawer = () => {
@@ -187,10 +187,13 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {matches && (<>  <Drawer
-                position='right' size='100%'
+            {matches && (<>
+                <Drawer
+                position='right'
+                size='100%'
                 className={style.drawerMenu}
-                opened={opened} onClose={close}
+                opened={opened}
+                onClose={close}
                 title={false}
                 withCloseButton={false}
                 classNames={{
