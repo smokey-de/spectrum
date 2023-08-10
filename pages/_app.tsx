@@ -4,16 +4,28 @@ import {MantineProvider} from "@mantine/core";
 import '../public/index.scss'
 import Layout from "../src/futures/layout";
 import {appWithTranslation} from 'next-i18next';
-import useTranslation from 'next-translate/useTranslation'
+import parse from "html-react-parser";
+import {useMetricsStore} from "../src/shared/store/metrics";
+import {shallow} from "zustand/shallow";
+import {useEffect} from "react";
+import {usePathname} from "next/navigation";
 
 function App(props: AppProps) {
+    const location = usePathname()
     const {Component, pageProps} = props;
-
+    const [fetchMetrics, metricsList, reset] = useMetricsStore(s => [s.fetchMetrics, s.metricsList, s.reset], shallow);
+    console.log(location,'location')
+    useEffect(() => {
+        fetchMetrics();
+        return () => reset();
+    }, []);
     return (
         <>
             <Head>
-                <title>Home</title>
-                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width"/>
+                <title>
+                    Spectrum Collection
+                </title>
+                {metricsList?.map((i: any) => parse(i?.code))}
             </Head>
 
             <MantineProvider

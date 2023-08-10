@@ -6,16 +6,21 @@ import cl from 'classnames';
 import { Trans, useTranslation } from 'react-i18next';
 import {OurValues, WeTrusted} from "../../futures";
 import Image from "next/image";
+import HeadTitle from "../../futures/title";
+import {useRouter} from "next/router";
 
 export default function Career(){
+  const navigate = useRouter()
   const { t } = useTranslation();
   return (
       <>
         <Box className={'container'}>
           <Text maw={1182} m={'0 auto'} className={'headerTitle'} component={'p'}>
-            <Trans components={{span: <span/>}}>
-              careerTitle
-            </Trans>
+            {/*<Trans components={{span: <span/>}}>*/}
+            {/*  careerTitle*/}
+            {/*</Trans>*/}
+            <HeadTitle route={navigate.route}/>
+
           </Text>
 
           <div className={style.sectionOne}>
