@@ -1,0 +1,152 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  margin-top: 50px;
+
+  .card {
+    width: 100%;
+    max-width: 416px;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #E1E8E8;
+    background: #FFF;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      cursor: pointer;
+
+      .btn {
+        opacity: 1;
+      }
+    }
+
+    .image {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .cardTitle {
+      text-align: left;
+      color: #073E3D;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 140%;
+      margin-top: 12px;
+    }
+
+    .text {
+      text-align: left;
+      margin-top: 8px;
+      color: #8E9897;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 160%;
+      letter-spacing: 0.28px;
+    }
+
+    .badge {
+      display: block;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 140%;
+      text-align: center;
+
+      &.one {
+        background: #EBF3FF;
+        color: #0071BB;
+      }
+
+      &.two {
+        background: #F4F4F5;
+        color: #70707A;
+        margin-top: 8px;
+      }
+    }
+
+    .btn {
+      width: 58px;
+      height: 58px;
+      background: transparent;
+      padding: 0;
+      opacity: 0;
+      transition: .2s ease-in-out;
+    }
+  }
+}
+
+.pagination {
+  button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+
+    color: #073E3D;
+    font-size: 12px;
+    font-weight: 500;
+
+    &:hover {
+      color: #FFF;
+      background: #00AA4E !important;
+    }
+
+    &:last-child, &:first-child {
+      border: 1px solid #F6F7FA;
+
+      &:hover {
+        background: transparent !important;
+      }
+    }
+
+    &[data-active='true'] {
+      color: #FFF;
+      background: #00AA4E;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .cards {
+    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+
+    .card {
+      width: 100%;
+
+      .cardTitle {
+        font-size: 16px;
+        margin-top: 8px;
+      }
+
+      .badge {
+        font-size: 12px;
+
+      }
+
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 12px;
+
+    .card {
+      max-width: 100%;
+    }
+  }
+}

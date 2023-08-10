@@ -1,0 +1,165 @@
+.section {
+  width: 100%;
+  max-width: 1196px;
+
+  border-radius: 10px;
+  background: #F3F7F8;
+  padding: 50px 60px;
+  margin: 50px auto 0;
+
+  .box {
+    justify-content: center;
+    align-items: center;
+    column-gap: 19px;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(0, 113, 187, 0.31);
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    &:last-child {
+      padding: 25px 0 0 0;
+      border-bottom: none;
+    }
+
+    .textWrapper {
+      max-width: 723px;
+      width: 100%;
+
+      .title {
+        color: #0B1E1D;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 8px;
+      }
+
+      .subTitle {
+        color: #0071BB;
+        font-size: 20px;
+        line-height: 140%;
+
+        hr {
+          margin-top: 16px;
+          max-width: 384px;
+          width: 100%;
+          border: 1px dashed #CBCCCC;
+        }
+      }
+
+      .text {
+        margin-top: 22px;
+        line-height: 130%;
+        p{
+          margin-top: 16px;
+        }
+      }
+
+    }
+
+    .imageWrapper {
+      max-width: 334px;
+      width: 100%;
+      height: 361px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #FFF;
+      img{
+        height: 100% !important;
+        max-height: calc(361px - 24px) !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .section {
+    padding: 40px;
+
+    .box {
+      column-gap: 16px;
+      padding: 18px 0;
+
+      &:last-child {
+        padding: 18px 0 0 0;
+      }
+
+      .textWrapper {
+
+        .title {
+          font-size: 28px;
+        }
+
+        .subTitle {
+          font-size: 16px;
+        }
+
+        .text {
+          font-size: 14px;
+        }
+
+      }
+
+      .imageWrapper {
+        max-width: 334px;
+        width: 100%;
+        height: 361px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #FFF;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .section {
+    max-width: 100%;
+    border-radius: 6px;
+    padding: 24px 16px;
+    margin: 40px auto 0;
+
+    .box {
+      flex-direction: column;
+      row-gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0, 113, 187, 0.31);
+
+      &:last-child {
+        padding: 16px 0 0 0;
+        border-bottom: none;
+      }
+
+      .textWrapper {
+        max-width: 100%;
+
+        .title {
+          font-size: 20px;
+        }
+
+        .subTitle {
+          font-size: 16px;
+
+          hr {
+            max-width: 100%;
+          }
+        }
+
+        .text {
+          margin-top: 12px;
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+      }
+
+      .imageWrapper {
+        max-width: 330px;
+        height: auto;
+        padding: 8px;
+        border-radius: 6px;
+      }
+    }
+  }
+}

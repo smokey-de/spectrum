@@ -1,0 +1,113 @@
+.section {
+  margin-top: 49px;
+  padding: 48px 72px;
+  background: linear-gradient(45deg, #009846 0%, #0071BB 100%);
+
+  .sectionTitle {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 16px;
+
+    border-radius: 10px;
+    background: #FFF;
+
+    .cardTitle {
+      color: #5A5454;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: normal;
+    }
+
+    .text {
+      margin-top: 10px;
+      color: #5A5454;
+      line-height: 150%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .section {
+    margin-top: 49px;
+    padding: 48px;
+
+    .card {
+      width: 100%;
+      padding: 12px;
+
+      svg {
+        width: 50px;
+      }
+
+      .cardTitle {
+        font-size: 16px;
+      }
+
+      .text {
+        font-size: 12px;
+        line-height: 135%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .section {
+    height: 317px;
+    margin-top: 40px;
+    padding: 36px 0;
+
+    .sectionTitle {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      width: 343px;
+      max-height: 148px;
+      height: 100%;
+
+      .cardTitle {
+        font-size: 16px;
+      }
+
+      .text {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 140%;
+      }
+    }
+
+    .controls {
+      padding: 0;
+      width: 100px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%,50%);
+
+      .control {
+        width: 36px;
+        height: 36px;
+        border-radius: 40px;
+        background: #0B1E1D;
+        box-shadow: 0 16px 24px 0 rgba(115, 141, 163, 0.15);
+        border: none;
+        opacity: 1;
+
+        svg {
+          width: 16px;
+        }
+      }
+    }
+  }
+
+}

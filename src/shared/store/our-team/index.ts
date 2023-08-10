@@ -1,5 +1,6 @@
 import create from 'zustand';
-import { getOurTeamList,IOurTeamList } from '@/shared/api/our-team';
+import {getOurTeamList,IOurTeamList} from "../../api/our-team";
+
 
 interface IOurTeamState {
   ourTeamList?: IOurTeamList[];

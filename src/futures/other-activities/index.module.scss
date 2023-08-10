@@ -1,0 +1,138 @@
+.cards {
+  max-width: 1440px;
+  width: 100%;
+  padding: 48px 0;
+  background: linear-gradient(45deg, #009846 0%, #0071BB 100%);
+  margin: 80px auto;
+
+  .title {
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+
+  .card {
+    max-width: 359px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 60px;
+      min-width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: rgba(0, 170, 78, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardTitle {
+      color: #1D6362;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 130%;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .cards {
+    padding: 48px 32px;
+    .title {
+      font-size: 24px;
+    }
+
+    .card {
+      max-width: 359px;
+      padding: 16px;
+
+      .icon {
+        width: 60px;
+        min-width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        background: rgba(0, 170, 78, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cardTitle {
+        font-size: 16px;
+      }
+
+      .cardSubTitle {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 834px) {
+  .cards {
+    padding: 36px 16px;
+    margin: 40px auto;
+
+    .title {;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      max-width: 100%;
+      height: 116px;
+      padding: 16px;
+
+      .icon {
+        min-width: 32px;
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+      }
+
+      .cardTitle {
+        font-size: 16px;
+        br{
+          display: none;
+        }
+      }
+
+      .cardSubTitle {
+        font-size: 14px;
+        line-height: 140%;
+        margin-top: 8px;
+      }
+    }
+
+    .controls {
+      padding: 0;
+      width: 100px;
+      position: absolute;
+      top: 97%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .control {
+        width: 36px;
+        height: 36px;
+        border-radius: 40px;
+        background: #0B1E1D;
+        box-shadow: 0 16px 24px 0 rgba(115, 141, 163, 0.15);
+        border: none;
+        opacity: 1;
+        svg {
+          width: 16px;
+        }
+      }
+    }
+  }
+}
