@@ -12,7 +12,6 @@ export default function News() {
   const contentTextM = matches ? '12px 0 40px' : '43px 0 50px';
   const [scroll, scrollTo] = useWindowScroll();
   const [newsInfo, fetchNewInfo] = useNewsStore(s => [s.newsInfo, s.fetchNewInfo], shallow);
-  // const { [id] } = useParams();
   const router = useRouter()
   const { id } = router.query
 

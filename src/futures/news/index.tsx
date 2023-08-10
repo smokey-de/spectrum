@@ -1,10 +1,9 @@
 import  { useCallback, useEffect } from 'react';
 import style from './index.module.scss';
-import { Anchor, Box, Button, Flex, Image, Text } from '@mantine/core';
+import { Box, Button, Flex, Image, Text } from '@mantine/core';
 import ArrowRight from '../../../public/images/arrow-right.svg';
 import ArrowRounded from '../../../public/images/arrow-rounded.svg';
 import cl from 'classnames';
-import { Link, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from '@mantine/hooks';
 import { Carousel } from '@mantine/carousel';
 import CArrowLeft from '../../../public/images/carousel-arrow.svg';
@@ -30,7 +29,7 @@ export default function News() {
   // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
-    navigate.push('/all-news/' + item.id);
+    navigate.push('/news/' + item.id);
   }, []);
   return (
       <>
