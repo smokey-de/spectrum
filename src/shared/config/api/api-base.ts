@@ -2,17 +2,14 @@ import axios, { AxiosError } from 'axios';
 import {API_BASE} from "../../lib/constants";
 
 
-
 const apiBase = axios.create({
   baseURL: API_BASE,
 });
 
 apiBase.interceptors.request.use((config) => {
-  // const authToken = Cookies.get(TOKEN.AUTH_TOKEN);
-  // config.headers['Fcm-Token'] = 'test';
-  // config.headers['Accept-Language'] =  localStorage.getItem('language') || 'ru';
-  // config.headers['authorization'] = `Bearer ${authToken}`;
-
+    const lng = localStorage.getItem('languageLocal');
+    config.headers['Accept'] = 'application/json';
+    config.headers['Accept-Language'] =  lng;
   return config;
 });
 

@@ -4,9 +4,10 @@ import { Box,  Text } from '@mantine/core';
 import ImageOne from '../../../public/images/our-activities/image-3.png';
 import ImageTwo from '../../../public/images/our-activities/image-4.png';
 import { useMediaQuery } from '@mantine/hooks';
-import { Trans, useTranslation } from 'react-i18next';
 import Image from "next/image";
 import {OtherActivities} from "../../futures";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 export default function DebtSettlement() {
   const matches = useMediaQuery('(max-width: 834px)');
@@ -15,17 +16,13 @@ export default function DebtSettlement() {
       <>
         <Box className={'container'}>
           <Text component={'p'} className={'headerTitle'}>
-            <Trans components={{span: <span/> ,br: <br/>}}>
-              activitiesTwo
-            </Trans>
+            <Trans components={{ span: <span />, br: <br /> }} i18nKey={'common:activitiesTwo'}/>
           </Text>
           <div className={style.section}>
             <Image src={ImageOne}  alt={'ImageOne'} />
             <div className={style.newsWrapper}>
               <Text component={'p'} className={style.text}>
-                <Trans components={{br: <br/>}}>
-                  preTrialSettlementText1
-                </Trans>
+                <Trans components={{br: <br/> }} i18nKey={'common:preTrialSettlementText1'}/>
               </Text>
               <Box m={matches ? '40px 0 24px' : '50px 0'}>
                 <Image  src={ImageTwo} alt={'ImageTwo'}  />

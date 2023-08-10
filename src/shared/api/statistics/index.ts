@@ -7,10 +7,7 @@ export interface IStatisticsList {
 }
 
 export const getStatisticsList = async () => {
-  const config = {
-    headers: {"Accept-Language": localStorage.getItem('language') || 'ru'}
-  };
-  const response = await apiBase.get<{data: IStatisticsList[]}>('/api/statistic',config);
+  const response = await apiBase.get<{data: IStatisticsList[]}>('/api/statistic');
   return response?.data?.data;
 };
 

@@ -1,13 +1,13 @@
 import {useEffect} from 'react';
 import style from './index.module.scss';
 import {Flex, Text, Box, Skeleton} from '@mantine/core';
-import {useTranslation} from 'react-i18next';
 import { useStatisticsStore } from '../../shared/store/statistics';
 // import { useBankDataStore } from '@/shared/store/dataBank';
 import { shallow } from 'zustand/shallow';
+import useTranslation from "next-translate/useTranslation";
 
 export default function Statistics() {
-    const {t} = useTranslation();
+    const {t,lang} = useTranslation('common');
 
     const [fetchStatistics, statisticsList, reset] = useStatisticsStore(s => [s.fetchStatistics, s.statisticsList, s.reset], shallow);
     // const [bankDate, fetchBankData] = useBankDataStore(s => [s.bankDate, s.fetchBankData], shallow);
@@ -15,7 +15,7 @@ export default function Statistics() {
       fetchStatistics();
       // fetchBankData();
       return () => reset();
-    }, []);
+    }, [lang]);
     // localStorage.getItem('language')
     // const statisticsList: any = [{
     //     icon: 'noImage',

@@ -4,9 +4,10 @@ import {Box, Text} from '@mantine/core';
 import ImageOne from '../../../public/images/our-activities/image-5.png';
 import ImageTwo from '../../../public/images/our-activities/image-6.png';
 import {useMediaQuery} from '@mantine/hooks';
-import {Trans, useTranslation} from 'react-i18next';
 import Image from "next/image";
 import {OtherActivities} from "../../futures";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 const PortfolioAnalysis = () => {
     const matches = useMediaQuery('(max-width: 834px)');
@@ -16,17 +17,13 @@ const PortfolioAnalysis = () => {
         <>
             <Box className={'container'}>
                 <Text component={'p'} className={'headerTitle'}>
-                    <Trans components={{span: <span/>}}>
-                        activitiesThree
-                    </Trans>
+                    <Trans components={{span: <span/>}} i18nKey={'common:activitiesThree'}/>
                 </Text>
                 <div className={style.section}>
                     <Image src={ImageOne} alt={'ImageOne'}/>
                     <div className={style.newsWrapper}>
                         <Text component={'p'} className={style.text}>
-                            <Trans components={{span: <span/>}}>
-                                portfolioAnalysisText1
-                            </Trans>
+                            <Trans components={{span: <span/>}} i18nKey={'common:portfolioAnalysisText1'}/>
                         </Text>
                         <Box m={matches ? '40px 0 24px' : '50px 0'}>
                             <Image src={ImageTwo} alt={'ImageTwo'}/>

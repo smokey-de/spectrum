@@ -1,13 +1,13 @@
 import style from './index.module.scss';
 import { Button, Text } from '@mantine/core';
-import { useTranslation } from 'react-i18next';
 import {useRouter} from "next/router";
+import useTranslation from "next-translate/useTranslation";
 interface IProps {
   m?: string
 }
 export default function OurMission({m}:IProps){
   const navigate = useRouter()
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
     <>
       <div className={style.section} style={{

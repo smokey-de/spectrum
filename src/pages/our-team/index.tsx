@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import style from './index.module.scss';
 import { Box, Flex, Image, Text } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
-import { Trans, useTranslation } from 'react-i18next';
 import { shallow } from 'zustand/shallow';
 import {useOurTeamStore} from "../../shared/store/our-team";
 import {WeTrusted} from "../../futures";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 
 export default function OurTeam() {
@@ -20,15 +21,11 @@ export default function OurTeam() {
     return () => reset();
   }, []);
 
-    // localStorage.getItem('language')
-
   return (
       <>
         <Box className={'container'}>
           <Text component={'p'} className={'headerTitle'}>
-            <Trans components={{ span: <span /> }}>
-              ourTeamTitle
-            </Trans>
+              <Trans components={{span: <span/>}} i18nKey={'common:ourTeamTitle'}/>
           </Text>
           <div className={style.section}>
             {ourTeamList?.map((i,index) => <>

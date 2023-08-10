@@ -16,16 +16,18 @@ import IconPiggybank from "../../../public/images/icon-piggybank.svg";
 import IconCash from "../../../public/images/icon-cash.svg";
 import cl from "classnames";
 import {useRouter} from "next/router";
-import {Trans, useTranslation} from "next-i18next";
 import {routePaths} from "../../futures/layout/navbar/libs";
 import {MainCarousel, Metrics, News, Statistics, WeTrusted} from "../../futures";
 import {useBenefitsStore} from "../../shared/store/benefits";
 import {useEffect} from "react";
 import {shallow} from "zustand/shallow";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+import dynamic from "next/dynamic";
 export default function Home() {
     const navigate = useRouter();
     const matches = useMediaQuery('(max-width: 834px)');
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const [scroll, scrollTo] = useWindowScroll();
 
     const [fetchBenefits, benefitsList, reset] = useBenefitsStore(s => [s.fetchBenefits, s.benefitsList, s.reset], shallow);
@@ -95,9 +97,7 @@ export default function Home() {
                             </Anchor>
                         </Flex>
                         <Text component={'p'} className={style.text}>
-                            <Trans components={{ b: <span /> }}>
-                                sectionTwoContactText
-                            </Trans>
+                            <Trans components={{ b: <span /> }} i18nKey={'common:sectionTwoContactText'}/>
                         </Text>
                         <Button onClick={() => navigate.push('/contact')} className={style.btn} leftIcon={<IconClipboard />}>
                             {t('submitApplication')}
@@ -110,9 +110,7 @@ export default function Home() {
                 <div className={style.sectionFour} >
                     <div className={style.textWrapper}>
                         <Text component={'p'} className={'title'}>
-                            <Trans components={{ br: <br /> }}>
-                                activities
-                            </Trans>
+                            <Trans components={{ br: <br /> }} i18nKey={'common:activities'}/>
                         </Text>
                     </div>
                     {matches && <Carousel
@@ -141,9 +139,7 @@ export default function Home() {
                                         <IconCalculator />
                                     </div>
                                     <Text component={'p'} className={style.cardTitle}>
-                                        <Trans components={{ span: <p /> }}>
-                                            activitiesMainOne
-                                        </Trans>
+                                        <Trans components={{ span: <p /> }} i18nKey={'common:activitiesMainOne'}/>
                                     </Text>
                                 </Flex>
                             </div>
@@ -158,9 +154,8 @@ export default function Home() {
                                         <IconDebtSettlement />
                                     </div>
                                     <Text component={'p'} className={style.cardTitle}>
-                                        <Trans components={{ span: <p />, br: <span /> }}>
-                                            activitiesTwo
-                                        </Trans>
+                                        <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesTwo'}/>
+
                                     </Text>
                                 </Flex>
                             </div>
@@ -175,9 +170,7 @@ export default function Home() {
                                         <IconPiggybank />
                                     </div>
                                     <Text component={'p'} className={style.cardTitle}>
-                                        <Trans components={{ span: <p />, br: <span /> }}>
-                                            activitiesThree
-                                        </Trans>
+                                        <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesThree'}/>
                                     </Text>
                                 </Flex>
                             </div>
@@ -192,9 +185,7 @@ export default function Home() {
                                         <IconCash />
                                     </div>
                                     <Text component={'p'} className={style.cardTitle}>
-                                        <Trans components={{ span: <p />, br: <span /> }}>
-                                            activitiesFour
-                                        </Trans>
+                                        <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesFour'}/>
                                     </Text>
                                 </Flex>
                             </div>
@@ -224,9 +215,7 @@ export default function Home() {
                                     <IconDebtSettlement />
                                 </div>
                                 <Text component={'p'} className={style.cardTitle}>
-                                    <Trans components={{ span: <p />, br: <span /> }}>
-                                        activitiesTwo
-                                    </Trans>
+                                    <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesTwo'}/>
                                 </Text>
                             </Flex>
                         </div>
@@ -239,9 +228,7 @@ export default function Home() {
                                     <IconPiggybank />
                                 </div>
                                 <Text component={'p'} className={style.cardTitle}>
-                                    <Trans components={{ span: <p />, br: <span /> }}>
-                                        activitiesThree
-                                    </Trans>
+                                    <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesThree'}/>
                                 </Text>
                             </Flex>
                         </div>
@@ -254,9 +241,7 @@ export default function Home() {
                                     <IconCash />
                                 </div>
                                 <Text component={'p'} className={style.cardTitle}>
-                                    <Trans components={{ span: <p />, br: <span /> }}>
-                                        activitiesFour
-                                    </Trans>
+                                    <Trans components={{ span: <p />, br: <span /> }} i18nKey={'common:activitiesFour'}/>
                                 </Text>
                             </Flex>
                         </div>

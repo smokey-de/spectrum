@@ -6,10 +6,7 @@ export interface IBenefitsList {
 }
 
 export const getBenefitsList = async () => {
-  const config = {
-    headers: {"Accept-Language": localStorage.getItem('language') || 'ru'}
-  };
-  const response = await apiBase.get<{data: IBenefitsList[]}>('/api/benefits',config);
+  const response = await apiBase.get<{data: IBenefitsList[]}>('/api/benefits');
   return response?.data?.data;
 };
 

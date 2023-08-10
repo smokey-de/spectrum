@@ -8,14 +8,18 @@ import parse from "html-react-parser";
 import {useMetricsStore} from "../src/shared/store/metrics";
 import {shallow} from "zustand/shallow";
 import {useEffect} from "react";
+import useTranslation from 'next-translate/useTranslation'
 
 function App(props: AppProps) {
     const {Component, pageProps} = props;
+    const {t,lang} = useTranslation();
     const [fetchMetrics, metricsList, reset] = useMetricsStore(s => [s.fetchMetrics, s.metricsList, s.reset], shallow);
     useEffect(() => {
         fetchMetrics();
+        localStorage.setItem('languageLocal', lang)
         return () => reset();
-    }, []);
+    }, [lang]);
+
     return (
         <>
             <Head>

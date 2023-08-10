@@ -7,7 +7,6 @@ import NewsImage from '../../../public/images/news-image.png';
 import ArrowRounded from '../../../public/images/arrow-rounded.svg';
 import ArrowLeft from '../../../public/images/pagination-arrow-left.svg';
 import ArrowRight from '../../../public/images/pagination-arrow-right.svg';
-import { Trans, useTranslation } from 'react-i18next';
 
 import { shallow } from 'zustand/shallow';
 
@@ -15,13 +14,17 @@ import {useRouter} from "next/router";
 import {useNewsStore} from "../../shared/store/news";
 import {INewsList} from "../../shared/api/news";
 import {OurMission} from "../../futures";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 export default function AllNews() {
   const navigate = useRouter();
   const matches = useMediaQuery('(max-width: 834px)');
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [fetchNews, newsList, reset] = useNewsStore(s => [s.fetchNews, s.newsList, s.reset], shallow);
   const [scroll, scrollTo] = useWindowScroll();
+
+
 
   useEffect(() => {
     setTimeout(()=>     scrollTo({ y: 0 }),0)
@@ -29,8 +32,6 @@ export default function AllNews() {
 
     return () => reset();
   }, []);
-
-  // localStorage.getItem('language')
 
   const onNewsClick = useCallback((item: INewsList) => {
     navigate.push('/all-news/' + item?.id);
@@ -44,9 +45,7 @@ export default function AllNews() {
       <>
         <Box className={'container'}>
           <Text component={'p'} className={'headerTitle'}>
-            <Trans components={{ span: <span /> }}>
-              allNewsTitle
-            </Trans>
+            <Trans components={{ span: <span /> }} i18nKey={'common:allNewsTitle'}/>
           </Text>
 
           { newsList?.data?.length === 0 ?

@@ -8,10 +8,7 @@ export interface IOurTeamList {
 }
 
 export const getOurTeamList = async () => {
-  const config = {
-    headers: {"Accept-Language": localStorage.getItem('language') || 'ru'}
-  };
-  const response = await apiBase.get<{data: IOurTeamList[]}>('/api/team-members',config);
+  const response = await apiBase.get<{data: IOurTeamList[]}>('/api/team-members');
   return response?.data?.data;
 };
 

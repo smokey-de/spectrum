@@ -2,24 +2,18 @@ import style from "./footer.module.scss"
 import { Text, Anchor, Flex } from '@mantine/core';
 import { useMediaQuery, useScrollIntoView } from '@mantine/hooks';
 import Link  from 'next/link';
-import { useTranslation } from 'react-i18next';
 import Logo from "../../../../public/images/logo.svg"
 import IconTelegram from "../../../../public/images/icon-telegram.svg"
 import IconInstagram from "../../../../public/images/icon-instagram.svg"
 import IconFacebook from "../../../../public/images/icon-facebook.svg"
 import IconLinkedin from "../../../../public/images/icon-linkedin.svg"
+import useTranslation from "next-translate/useTranslation";
+
 export default function Footer() {
     const matches = useMediaQuery('(max-width: 1439px)');
-    const { t } = useTranslation();
-    // const { scrollIntoView } = useScrollIntoView<HTMLDivElement>({
-    //     offset: 10,
-    // });
-    //
+    const { t } = useTranslation('common');
     const scrollTop = () => {
-        // scrollIntoView({
-        //     alignment: 'start',
-        // })
-        console.log('click')
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     return (
         <>

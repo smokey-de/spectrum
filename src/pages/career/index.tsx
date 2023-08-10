@@ -3,15 +3,16 @@ import style from './index.module.scss';
 import { Box, Text, Anchor } from '@mantine/core';
 import ImageOne from '../../../public/images/image-career.png';
 import cl from 'classnames';
-import { Trans, useTranslation } from 'react-i18next';
 import {OurValues, WeTrusted} from "../../futures";
 import Image from "next/image";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 import HeadTitle from "../../futures/title";
 import {useRouter} from "next/router";
 
 export default function Career(){
   const navigate = useRouter()
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
       <>
         <Box className={'container'}>
@@ -29,9 +30,7 @@ export default function Career(){
               </Text>
 
               <Text className={style.text} component={'p'}>
-                <Trans components={{b: <b/>   }}>
-                  careerWithUsText
-                </Trans>
+                <Trans components={{b: <b/>}} i18nKey={"common:careerWithUsText"}/>
               </Text>
 
               <Anchor target={'_blank'} href={'https://tashkent.hh.uz/employer/9857172?hhtmFrom=vacancy'} className={style.link}>
