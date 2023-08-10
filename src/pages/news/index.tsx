@@ -25,7 +25,7 @@ export default function News() {
       <>
         <Box className={'container'}>
           <Text component={'p'} className={'headerTitle'}>
-            {newsInfo?.title || '-'}
+            {newsInfo?.title || '- '}
           </Text>
 
           <Text component={'p'} className={style.date}>
