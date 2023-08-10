@@ -4,6 +4,7 @@ import {MantineProvider} from "@mantine/core";
 import '../public/index.scss'
 import Layout from "../src/futures/layout";
 import {appWithTranslation} from 'next-i18next';
+import useTranslation from 'next-translate/useTranslation'
 
 function App(props: AppProps) {
     const {Component, pageProps} = props;

@@ -7,7 +7,6 @@ import cl from 'classnames'
 import Link from 'next/link'
 import {usePathname} from "next/navigation";
 import {useRouter} from "next/router";
-import { Trans, useTranslation} from "next-i18next";
 import Logo from "../../../../public/images/logo.svg"
 import IconFlagRu from "../../../../public/images/icon-flag-ru.svg"
 import IconFlagUz from "../../../../public/images/icon-flag-uz.svg"
@@ -15,40 +14,34 @@ import IconFlagEn from "../../../../public/images/icon-flag-en.svg"
 import IconClose from "../../../../public/images/icon-x-mark.svg"
 import ArrowDown from "../../../../public/images/arrow-down.svg"
 import {useNewsStore} from "../../../shared/store/news";
+import setLanguage from "next-translate/setLanguage";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+
+const data = [
+    {
+        label: 'Ru',
+        value: 'ru',
+    },
+    {
+        label: 'Uz',
+        value: 'uz',
+    },
+    {
+        label: 'En',
+        value: 'en',
+    },
+];
 
 export default function Navbar() {
     const location = usePathname()
     const navigate = useRouter();
     const matches = useMediaQuery('(max-width: 1439px)');
     const [opened, {open, close}] = useDisclosure(false);
-    const [language, setLanguage] = useState('ru');
-    const [selectValue, setSelectValue] = useState( 'ru');
     const [accordionOne, setAccordionOne] = useState(false);
     const [accordionTwo, setAccordionTwo] = useState(false);
-    const {t,i18n} = useTranslation();
-    const data = [
-        {
-            label: 'Ru',
-            value: 'ru',
-        },
-        {
-            label: 'Uz',
-            value: 'uz',
-        },
-        {
-            label: 'En',
-            value: 'en',
-        },
-    ];
-    // const {id} = useParams();
-    // const fetchNewInfo = useNewsStore(s => s.fetchNewInfo);
+    const {t,lang} = useTranslation();
 
-    const onChange = (value: string) => {
-        // if (id) setTimeout(()=> fetchNewInfo(+id))
-        // localStorage.setItem('language', value);
-        i18n.changeLanguage(value)
-        setSelectValue(value);
-    };
 
     const closeDrawer = () => {
         close();
@@ -57,10 +50,7 @@ export default function Navbar() {
     };
 
     const changeLanguage = (lang: string) => {
-        // if (id) setTimeout(()=> fetchNewInfo(+id))
         setLanguage(lang);
-        i18n.changeLanguage(lang);
-        // localStorage.setItem('language', lang);
     }
 
     return (
@@ -126,9 +116,7 @@ export default function Navbar() {
                                         && style.active])}
                                         align={'center'} columnGap={8}>
                                         <Text component={'p'}>
-                                            <Trans components={{br: <br style={{display: 'none'}}/>}}>
-                                                activities
-                                            </Trans>
+                                            <Trans components={{br: <br style={{display: 'none'}}/>}} i18nKey={'common:activities'}/>
                                         </Text>
                                         <ArrowDown />
                                     </Flex>
@@ -139,36 +127,28 @@ export default function Navbar() {
                                         <Text
                                             className={cl(style.link, [location === `/${routePaths.monitoringLevelOverdue}` && style.active])}
                                             component={'p'}>
-                                            <Trans components={{span: <span/>}}>
-                                                activitiesOne
-                                            </Trans>
+                                            <Trans components={{span: <span/>}} i18nKey={'common:activitiesOne'}/>
                                         </Text>
                                     </Menu.Item>
                                     <Menu.Item component={Link} href={routePaths.debtSettlement}>
                                         <Text
                                             className={cl(style.link, [location === `/${routePaths.debtSettlement}` && style.active])}
                                             component={'p'}>
-                                            <Trans components={{span: <span/>, br: <span/>}}>
-                                                activitiesTwo
-                                            </Trans>
+                                            <Trans components={{span: <span/>, br: <span/>}} i18nKey={'common:activitiesTwo'}/>
                                         </Text>
                                     </Menu.Item>
                                     <Menu.Item component={Link} href={routePaths.portfolioAnalysis}>
                                         <Text
                                             className={cl(style.link, [location === `/${routePaths.portfolioAnalysis}` && style.active])}
                                             component={'p'}>
-                                            <Trans components={{span: <span/>, br: <span/>}}>
-                                                activitiesThree
-                                            </Trans>
+                                            <Trans components={{span: <span/>, br: <span/>}} i18nKey={'common:activitiesThree'}/>
                                         </Text>
                                     </Menu.Item>
                                     <Menu.Item component={Link} href={routePaths.legalSupportRecoveryProcess}>
                                         <Text
                                             className={cl(style.link, [location === `/${routePaths.legalSupportRecoveryProcess}` && style.active])}
                                             component={'p'}>
-                                            <Trans components={{span: <span/>, br: <span/>}}>
-                                                activitiesFour
-                                            </Trans>
+                                            <Trans components={{span: <span/>, br: <span/>}} i18nKey={'common:activitiesFour'}/>
                                         </Text>
                                     </Menu.Item>
                                 </Menu.Dropdown>
@@ -185,16 +165,16 @@ export default function Navbar() {
                     {!matches && (<>
                         <Flex columnGap={matches ? 20 : 12} align={'center'}>
                             <Select
-                                value={selectValue}
-                                onChange={onChange}
+                                value={lang}
+                                onChange={changeLanguage}
                                 className={style.languages}
                                 data={data}
                                 rightSection={false}
                                 classNames={{
                                     rightSection: style.languagesRightSection
                                 }}
-                                icon={(selectValue === 'ru' && <IconFlagRu />) || (selectValue === 'uz' &&
-                                    <IconFlagUz />) || (selectValue === 'en' && <IconFlagEn />)}
+                                icon={(lang === 'ru' && <IconFlagRu />) || (lang === 'uz' &&
+                                    <IconFlagUz />) || (lang === 'en' && <IconFlagEn />)}
                             />
                             <Button onClick={() => navigate.push('/contact')} className={style.navBtn}>
                                 {t('contacts')}
@@ -225,21 +205,21 @@ export default function Navbar() {
                     </ActionIcon>
                 </Flex>
                 <div className={style.languagesWrapper}>
-                    <div onClick={() => changeLanguage('ru')} className={cl(style.language, [language === 'ru' && style.active])}>
+                    <div onClick={() => changeLanguage('ru')} className={cl(style.language, [lang === 'ru' && style.active])}>
                         <Flex align={'center'} columnGap={12}>
                             <IconFlagRu />
                             Русский
                         </Flex>
                         <div className={style.point} />
                     </div>
-                    <div onClick={() => changeLanguage('uz')} className={cl(style.language, [language === 'uz' && style.active])}>
+                    <div onClick={() => changeLanguage('uz')} className={cl(style.language, [lang === 'uz' && style.active])}>
                         <Flex align={'center'} columnGap={12}>
                             <IconFlagUz />
                             Ўзбек тили
                         </Flex>
                         <div className={style.point} />
                     </div>
-                    <div onClick={() => changeLanguage('en')} className={cl(style.language, [language === 'en' && style.active])}>
+                    <div onClick={() => changeLanguage('en')} className={cl(style.language, [lang === 'en' && style.active])}>
                         <Flex align={'center'} columnGap={12}>
                             <IconFlagEn />
                             English
@@ -301,9 +281,7 @@ export default function Navbar() {
                                 justify={'space-between'}
                                 columnGap={8}>
                                 <Text component={'p'}>
-                                    <Trans components={{ br: <span /> }}>
-                                        activities
-                                    </Trans>
+                                    <Trans components={{ br: <span /> }} i18nKey={'common:activities'}/>
                                 </Text>
                                 <ArrowDown />
                             </Flex>
@@ -323,9 +301,7 @@ export default function Navbar() {
                             </Anchor>
                             <Anchor onClick={closeDrawer} component={Link} href={routePaths.portfolioAnalysis}>
                                 <Text component={'p'} className={style.link}>
-                                    <Trans components={{ br: <span /> }}>
-                                        activitiesCardThree
-                                    </Trans>
+                                    <Trans components={{ br: <span /> }} i18nKey={'common:activitiesCardThree'}/>
                                 </Text>
                             </Anchor>
                             <Anchor onClick={closeDrawer} component={Link} href={routePaths.legalSupportRecoveryProcess}>

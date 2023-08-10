@@ -1,21 +1,23 @@
-import {Trans, useTranslation} from 'next-i18next';
 import {useRouter} from "next/router";
 import {OurValues, Statistics, WeTrusted} from "../../futures";
 import {Box, Button, Flex, Text} from "@mantine/core";
 import style from "./index.module.scss"
 import {useMediaQuery} from "@mantine/hooks";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+
 export default function About() {
     const navigate = useRouter();
     const matches = useMediaQuery('(max-width: 834px)');
-    const {t} = useTranslation();
+    const {t} = useTranslation('common')
+
 
     return (
         <>
             <Box className={'container'}>
                 <Text className={'headerTitle'} component={'p'}>
-                    <Trans components={{span: <span/>}}>
-                        aboutTitle
-                    </Trans>
+                    <Trans i18nKey="common:aboutTitle"
+                           components={{span: <span/>}}/>
                 </Text>
                 <Flex className={style.sectionTwo}>
                     <div className={style.boxLeft}>
@@ -41,8 +43,8 @@ export default function About() {
                         </Text>
                     </div>
                 </Flex>
-                <Box mt={ matches ? 40 : 80}>
-                    <Statistics />
+                <Box mt={matches ? 40 : 80}>
+                    <Statistics/>
                 </Box>
                 <div className={style.sectionFour}>
                     <Text align={'center'} className={'title'} component={'p'}>
@@ -88,8 +90,8 @@ export default function About() {
                     </div>
                 </div>
             </Box>
-            <OurValues />
-            <WeTrusted />
+            <OurValues/>
+            <WeTrusted/>
         </>
     );
 }

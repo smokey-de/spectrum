@@ -1,19 +1,16 @@
 /** @type {import('next').NextConfig} */
-const { i18n } = require('./next-i18next.config');
+const nextTranslate = require('next-translate-plugin')
 
 const nextConfig = {
-  reactStrictMode: true,
-  i18n
+    reactStrictMode: true,
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ["@svgr/webpack"]
+        });
+
+        return config;
+    }
 }
 
-module.exports = {
-  nextConfig,
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"]
-    });
-
-    return config;
-  }
-};
+module.exports = nextTranslate(nextConfig)
