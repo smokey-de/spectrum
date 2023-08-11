@@ -1,31 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import style from './index.module.scss';
-import { Anchor, Box, Button, Flex, Input, Modal, Text, Textarea } from '@mantine/core';
-  import { IMaskInput } from 'react-imask';
+import {Anchor, Box, Button, Flex, Input, Modal, Text, Textarea, TextInput} from '@mantine/core';
+import {IMaskInput} from 'react-imask';
 import IconCheck from '../../../public/images/icon-check-success.svg';
-import { useDisclosure, useMediaQuery, useWindowScroll } from '@mantine/hooks';
-import {sendContactForm} from "../../shared/api/contact";
+import {useDisclosure, useMediaQuery, useWindowScroll} from '@mantine/hooks';
 import useTranslation from "next-translate/useTranslation";
+import {useForm} from "@mantine/form";
+import {sendContactForm} from "../../shared/api/contact";
 
 export default function Contact(){
   const [opened, { open, close }] = useDisclosure(false);
   const matches = useMediaQuery('(max-width: 834px)');
   const { t } = useTranslation('common');
   const [scroll, scrollTo] = useWindowScroll();
-  const [name, setName] = useState('');
-  const [text, setText] = useState('');
-  const [phone, setPhone] = useState('+998');
+
   const [isLoading, setIsLoading] = useState(false);
 
+  const form = useForm({
+    initialValues: {
+      phone: '+998',
+      name: '',
+      text: '',
+      termsOfService: false,
+    },
 
-  const sendContact = async () => {
+    validate: {
+      phone: (value) => (value?.length > 18 ? null : ' '),
+      name: (value) => (value?.length ? null : ' '),
+    },
+  });
+
+
+  const sendContact = async (values: {name:string,phone: string,termsOfService: boolean,text: string}) => {
     setIsLoading(true);
+
+    const body = {...values, termsOfService: undefined}
+
     try {
-      const response = await sendContactForm({ name, phone, text });
+      const response = await sendContactForm(body);
       if (response.status === 200) {
-        setName('');
-        setPhone('+998');
-        setText('');
+        form.setValues({name: '',phone: '+998',text: ''})
         open();
       }
       setIsLoading(false);
@@ -37,6 +51,8 @@ export default function Contact(){
   useEffect(() => {
     setTimeout(() => scrollTo({ y: 0 }), 0);
   }, [scrollTo]);
+
+
 
   return (
       <>
@@ -84,32 +100,33 @@ export default function Contact(){
                   width='100%' height='100%' style={{ border: 0 }} allowFullScreen={true} loading='lazy'
                   referrerPolicy='no-referrer-when-downgrade'></iframe>
             </div>}
-            <div className={style.boxRight}>
+              <form className={style.boxRight} onSubmit={form.onSubmit((values) => sendContact(values))}>
+
               <Input.Wrapper className={style.inputWrapper}>
                 <Input.Label>
                   {t('name')}
                 </Input.Label>
-                <Input value={name} onChange={(e: { target: { value: string } }) => setName(e.target.value)} />
+                <TextInput {...form.getInputProps('name')}/>
               </Input.Wrapper>
               <Input.Wrapper m={'24px 0'} className={style.inputWrapper}>
                 <Input.Label>
                   {t('telNumber')}
                 </Input.Label>
-                <Input value={phone} component={IMaskInput}
-                       onChange={(e: any) => setPhone(e.target.value)}
-                       mask='+998 (00) 000-00-00' />
+                <TextInput  component={IMaskInput}
+                       mask='+998 (00) 000-00-00'
+                       {...form.getInputProps('phone')}
+                />
               </Input.Wrapper>
               <Input.Wrapper className={style.inputWrapper}>
                 <Input.Label>
                   {t('contactDescription')}
                 </Input.Label>
-                <Textarea maxLength={500} value={text}
-                          onChange={(e: { target: { value: string } }) => setText(e.target.value)} />
+                <Textarea  maxLength={500} {...form.getInputProps('text')}/>
               </Input.Wrapper>
-              <Button onClick={sendContact} fullWidth className={style.btn} loading={isLoading}>
+              <Button fullWidth className={style.btn}  type={'submit'} loading={isLoading}>
                 {t('ContactSubmitApplication')}
               </Button>
-            </div>
+              </form>
           </Flex>
 
 
