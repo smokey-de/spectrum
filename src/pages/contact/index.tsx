@@ -112,7 +112,7 @@ export default function Contact(){
                 <Input.Label>
                   {t('telNumber')}
                 </Input.Label>
-                <TextInput  component={IMaskInput}
+                <TextInput<any>  component={IMaskInput}
                        mask='+998 (00) 000-00-00'
                        {...form.getInputProps('phone')}
                 />
