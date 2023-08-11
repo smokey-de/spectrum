@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from './index.module.scss';
-import {Anchor, Box, Button, Flex, Input, Modal, Text, Textarea, TextInput} from '@mantine/core';
+import {Anchor, Box, Button, Flex, Input, Modal, Text, Textarea, TextInput,InputBase} from '@mantine/core';
 import {IMaskInput} from 'react-imask';
 import IconCheck from '../../../public/images/icon-check-success.svg';
 import {useDisclosure, useMediaQuery, useWindowScroll} from '@mantine/hooks';
@@ -112,7 +112,7 @@ export default function Contact(){
                 <Input.Label>
                   {t('telNumber')}
                 </Input.Label>
-                <TextInput  component={IMaskInput}
+                <InputBase component={IMaskInput}
                        mask='+998 (00) 000-00-00'
                        {...form.getInputProps('phone')}
                 />
