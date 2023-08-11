@@ -8,16 +8,17 @@ import Image from "next/image";
 import {OtherActivities} from "../../futures";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import HeadTitle from "../../futures/title";
+import {useRouter} from "next/router";
 
 export default function DebtSettlement() {
+  const navigate = useRouter()
   const matches = useMediaQuery('(max-width: 834px)');
   const { t } = useTranslation('common');
   return (
       <>
         <Box className={'container'}>
-          <Text component={'p'} className={'headerTitle'}>
-            <Trans components={{ span: <span />, br: <br /> }} i18nKey={'common:activitiesTwo'}/>
-          </Text>
+          <HeadTitle route={navigate.route}/>
           <div className={style.section}>
             <Image src={ImageOne}  alt={'ImageOne'} />
             <div className={style.newsWrapper}>
