@@ -4,20 +4,19 @@ import {Box, Text} from '@mantine/core';
 import ImageOne from '../../../public/images/our-activities/image-7.png';
 import ImageTwo from '../../../public/images/our-activities/image-8.png';
 import {useMediaQuery} from '@mantine/hooks';
-import {OtherActivities} from "../../futures";
+import {HeadTitle, OtherActivities} from "../../futures";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import Trans from "next-translate/Trans";
+import {useRouter} from "next/router";
 
 const LegalSupportRecoveryProcess = () => {
+    const navigate = useRouter()
     const matches = useMediaQuery('(max-width: 834px)');
     const { t } = useTranslation('common');
     return (
         <>
             <Box className={'container'}>
-                <Text component={'p'} className={'headerTitle'}>
-                    <Trans components={{span: <span/>, br: <br/>}} i18nKey={'common:activitiesFour'}/>
-                </Text>
+                <HeadTitle route={navigate.route}/>
                 <div className={style.section}>
                     <Image src={ImageOne} alt={'ImageOne'}/>
                     <div className={style.newsWrapper}>

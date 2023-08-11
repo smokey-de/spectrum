@@ -5,20 +5,22 @@ import ImageOne from '../../../public/images/our-activities/image-1.png';
 import ImageTwo from '../../../public/images/our-activities/image-2.png';
 
 import { useMediaQuery } from '@mantine/hooks';
-import {OtherActivities} from "../../futures";
+import {HeadTitle, OtherActivities} from "../../futures";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import {useRouter} from "next/router";
 
 const MonitoringLevelOverdue = () => {
+  const navigate = useRouter()
   const { t } = useTranslation('common');
   const matches = useMediaQuery('(max-width: 834px)');
   return (
     <>
       <Box className={'container'}>
-        <Text m={'0 auto'} maw={'886px'} component={'p'} className={'headerTitle'}>
-          <Trans components={{span: <span/>}} i18nKey={'common:levelMonitoring'}/>
-        </Text>
+        <Box m={'0 auto'} maw={'886px'}>
+          <HeadTitle route={navigate.route}/>
+        </Box>
         <div className={style.section}>
           <Image src={ImageOne} alt={'ImageOne'}/>
           <div className={style.newsWrapper}>

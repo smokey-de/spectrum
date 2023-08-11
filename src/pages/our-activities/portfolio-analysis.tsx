@@ -5,20 +5,19 @@ import ImageOne from '../../../public/images/our-activities/image-5.png';
 import ImageTwo from '../../../public/images/our-activities/image-6.png';
 import {useMediaQuery} from '@mantine/hooks';
 import Image from "next/image";
-import {OtherActivities} from "../../futures";
+import {HeadTitle, OtherActivities} from "../../futures";
 import useTranslation from "next-translate/useTranslation";
 import Trans from "next-translate/Trans";
+import {useRouter} from "next/router";
 
 const PortfolioAnalysis = () => {
     const matches = useMediaQuery('(max-width: 834px)');
-
-    const { t } = useTranslation('common');
+    const navigate = useRouter()
+    const {t} = useTranslation('common');
     return (
         <>
             <Box className={'container'}>
-                <Text component={'p'} className={'headerTitle'}>
-                    <Trans components={{span: <span/>}} i18nKey={'common:activitiesThree'}/>
-                </Text>
+                <HeadTitle route={navigate.route}/>
                 <div className={style.section}>
                     <Image src={ImageOne} alt={'ImageOne'}/>
                     <div className={style.newsWrapper}>
