@@ -1,9 +1,9 @@
 import create from 'zustand';
-import {getCarouselList,ICarouselList} from "../../api/carousel";
+import {getCarouselList} from "../../api/carousel";
 
 
 interface ICarouselState {
-  carouselList?: ICarouselList[];
+  carouselList: any;
 }
 
 interface ICarousel extends ICarouselState {
