@@ -1,14 +1,24 @@
 import {Career as CareerPage} from "../src/pages"
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
+import {useTitleStore} from "../src/shared/store/title";
+import {useEffect} from "react";
+import {useRouter} from "next/router";
+import {shallow} from "zustand/shallow";
 
 export default function Career() {
-    const { t } = useTranslation('common');
+    const {t} = useTranslation('common');
+    const navigate = useRouter()
+    const [fetchTitle, titleItem, reset] = useTitleStore(s => [s.fetchTitle, s.titleItem, s.reset], shallow);
+    useEffect(() => {
+        fetchTitle(navigate.route)
+        return () => reset();
+    }, [])
     return (
         <>
-             <Head>
+            <Head>
                 <title>Spectrum Collection - {t('careers')}</title>
-                <meta name="description" content="This is Spectrum Collection Career page"/>
+                <meta name="description" content={titleItem?.description ? titleItem?.description : "Career"}/>
                 <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <CareerPage/>
