@@ -8,7 +8,6 @@ import {useEffect} from "react";
 export default function Main() {
     const {t} = useTranslation('common');
     const [fetchTitle, titleItem, reset] = useTitleStore(s => [s.fetchTitle, s.titleItem, s.reset], shallow);
-    console.log(titleItem, 'titleItem')
     useEffect(() => {
         fetchTitle('main')
         return () => reset();
