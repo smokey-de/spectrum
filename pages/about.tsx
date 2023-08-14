@@ -20,7 +20,6 @@ export default function About() {
             <Head>
                 <title>Spectrum Collection - {t('aboutCompany')}</title>
                 <meta name="description" content={titleItem?.description ? titleItem?.description : "About"}/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <AboutPage/>
         </>

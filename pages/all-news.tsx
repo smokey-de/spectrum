@@ -9,7 +9,6 @@ export default function AllNews() {
              <Head>
                 <title>Spectrum Collection - {t('allNewsTwo')}</title>
                 <meta name="description" content="This is Spectrum Collection AllNews page"/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <AllNewsPage/>
         </>
