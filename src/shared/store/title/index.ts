@@ -1,8 +1,8 @@
 import create from 'zustand';
-import {getTitleList} from "../../api/title";
+import {getTitleList,ITitleList} from "../../api/title";
 
 interface ITitleState {
-  titleItem: any;
+  titleItem: ITitleList;
 }
 
 interface ITitles extends ITitleState {
@@ -11,16 +11,16 @@ interface ITitles extends ITitleState {
 }
 
 const state = {
-  titleItem: null,
+  titleItem: {},
 };
 
 export const useTitleStore = create<ITitles>((set, get) => ({
   ...state,
   fetchTitle: async (route) => {
 
-    const titlesList = await getTitleList(route);
+    const titleItem = await getTitleList(route);
 
-    set({ titleItem: titlesList });
+    set({ titleItem });
   },
 
   reset: () => {
