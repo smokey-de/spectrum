@@ -19,7 +19,6 @@ export default function OurTeam() {
             <Head>
                 <title>Spectrum Collection - {t('ourTeam')}</title>
                 <meta name="description" content={titleItem?.description ? titleItem?.description : "OurTeam"}/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <OurTeamPage/>
         </>

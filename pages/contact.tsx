@@ -9,7 +9,6 @@ export default function Contact() {
             <Head>
                 <title>Spectrum Collection - {t('contacts')}</title>
                 <meta name="description" content="This is Spectrum Collection contacts page"/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <ContactPage/>
         </>

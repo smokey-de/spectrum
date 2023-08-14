@@ -19,7 +19,6 @@ export default function MonitoringLevelOverduePage() {
                 <title>Spectrum Collection</title>
                 <meta name="description"
                       content={titleItem?.description ? titleItem?.description : "MonitoringLevelOverduePage"}/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <MonitoringLevelOverdue/>
         </>

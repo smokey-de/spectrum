@@ -37,7 +37,7 @@ export default function MainCarousel() {
                           slideSize='100%'
                           slideGap='md'
                 >
-                    {carouselList?.map((i) => (
+                    {carouselList?.map((i:any) => (
                         <Carousel.Slide key={i?.id}>
                             <div className={style.card} style={{backgroundImage: `url(${i?.image})`}}>
                                 <div className={style.cardText}>

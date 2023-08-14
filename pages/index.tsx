@@ -17,7 +17,6 @@ export default function Main() {
             <Head>
                 <title>Spectrum Collection - {t('main')}</title>
                 <meta name="description" content={titleItem?.description ? titleItem?.description : "Main"}/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <HomePage/>
         </>

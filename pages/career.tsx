@@ -19,7 +19,6 @@ export default function Career() {
             <Head>
                 <title>Spectrum Collection - {t('careers')}</title>
                 <meta name="description" content={titleItem?.description ? titleItem?.description : "Career"}/>
-                <meta name='keywords' content='test keywords, test2 rew rew,rewrwe'/>
             </Head>
             <CareerPage/>
         </>
